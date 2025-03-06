@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+
+# File patterns *.tsx *.ts
+
+- Using React 19 functional components with best practices 
+- Using Tailwind css version 4.
+- Using shadcn UI components.
