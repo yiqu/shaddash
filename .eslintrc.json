@@ -1,5 +1,11 @@
 {
-  "extends": ["next/core-web-vitals", "next", "plugin:@next/next/recommended", "prettier"],
+  "extends": [
+    "next/core-web-vitals",
+    "next",
+    "plugin:@next/next/recommended",
+    "prettier",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
+  ],
   "plugins": [
     "perfectionist",
     "prettier",
@@ -7,7 +13,8 @@
     "unused-imports",
     "eslint-plugin-react-compiler",
     "unicorn",
-    "readable-tailwind"
+    "readable-tailwind",
+    "@tanstack/query"
   ],
   "rules": {
     "@next/next/no-img-element": 1,
