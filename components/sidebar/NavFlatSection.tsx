@@ -3,7 +3,7 @@ import { type LucideIcon } from 'lucide-react';
 
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '@/components/ui/sidebar';
 
-import { LEFT_NAV_ITEMS } from './NavList';
+import { LEFT_NAV_ITEMS } from '../side-nav/NavList';
 
 const ITEMS = LEFT_NAV_ITEMS.navMain;
 

@@ -2,9 +2,9 @@ import { ReactNode } from 'react';
 
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 
-import TopNav from './TopNav';
-import { NavSidebar } from './NavSidebar';
-import TopNavWrapper from './TopNavWrapper';
+import TopNav from '../top-nav/TopNav';
+import { NavSidebar } from '../side-nav/NavSidebar';
+import TopNavWrapper from '../top-nav/TopNavWrapper';
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   return (

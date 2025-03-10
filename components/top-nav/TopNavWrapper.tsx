@@ -19,7 +19,7 @@ export default function TopNavWrapper({ children }: { children: ReactNode }) {
           group-has-data-[collapsible=icon]/sidebar-wrapper:h-12
         `,
         {
-          'kq-light-shadow': hasScrolled,
+          'dino-light-shadow': hasScrolled,
         },
       ) }
     >

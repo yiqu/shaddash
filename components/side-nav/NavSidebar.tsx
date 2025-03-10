@@ -3,7 +3,6 @@
 import {
   Sidebar,
   SidebarRail,
-  SidebarMenu,
   SidebarGroup,
   SidebarFooter,
   SidebarHeader,
@@ -13,10 +12,9 @@ import {
 import NavHeader from './NavHeader';
 import { NavFooter } from './NavFooter';
 import { LEFT_NAV_ITEMS } from './NavList';
-import { NavFlatSection } from './NavFlatSection';
-import { NavExpandableSection } from './NavExpandableSection';
-import AddNewNavItem from '../_left-navigation/AddNewNavItem';
-import { NavProjects } from '../_left-navigation/ProjectsNavItems';
+import { AddNewItem } from '../sidebar/NavAddNewItem';
+import { NavFlatSection } from '../sidebar/NavFlatSection';
+import { NavExpandableSection } from '../sidebar/NavExpandableSection';
 
 export function NavSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -30,8 +28,8 @@ export function NavSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <div className="my-2"></div>
           <NavFlatSection items={ LEFT_NAV_ITEMS.navMain } />
           <div className="my-1"></div>
+          <AddNewItem />
         </SidebarGroup>
-        <NavProjects />
       </SidebarContent>
       <SidebarFooter>
         <NavFooter />

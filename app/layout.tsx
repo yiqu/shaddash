@@ -1,11 +1,11 @@
 import { geistFont } from '@/lib/fonts-config';
+import AppLayout from '@/components/layout/AppLayout';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
 import type { Metadata } from 'next';
 
 import './globals.css';
 import './tailwind-config.css';
-import AppLayout from './_app-layout/AppLayout';
 
 export const viewport = {
   width: 'device-width',
