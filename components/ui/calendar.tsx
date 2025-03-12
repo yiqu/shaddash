@@ -80,7 +80,9 @@ function Calendar({
   const columnsDisplayed = navView === 'years' ? 1 : numberOfMonths;
 
   const _monthsClassName = cn('relative flex', props.monthsClassName);
-  const _monthCaptionClassName = cn('relative mx-10 flex h-7 items-center justify-center', props.monthCaptionClassName);
+  const _monthCaptionClassName = cn(`
+    relative mx-10 flex h-7 items-center justify-center
+  `, props.monthCaptionClassName);
   const _weekdaysClassName = cn('flex flex-row', props.weekdaysClassName);
   const _weekdayClassName = cn('w-8 text-sm font-normal text-muted-foreground', props.weekdayClassName);
   const _monthClassName = cn('w-full', props.monthClassName);
@@ -95,27 +97,49 @@ function Calendar({
   const _navClassName = cn('flex items-start', props.navClassName);
   const _monthGridClassName = cn('mx-auto mt-4', props.monthGridClassName);
   const _weekClassName = cn('mt-2 flex w-max items-start', props.weekClassName);
-  const _dayClassName = cn('flex size-8 flex-1 items-center justify-center p-0 text-sm', props.dayClassName);
+  const _dayClassName = cn(`
+    flex size-8 flex-1 items-center justify-center p-0 text-sm
+  `, props.dayClassName);
   const _dayButtonClassName = cn(
     buttonVariants({ variant: 'ghost' }),
-    'size-8 rounded-md p-0 font-normal transition-none aria-selected:opacity-100',
+    `
+      size-8 rounded-md p-0 font-normal transition-none
+      aria-selected:opacity-100
+    `,
     props.dayButtonClassName,
   );
   const buttonRangeClassName =
     'bg-accent [&>button]:bg-primary [&>button]:text-primary-foreground [&>button]:hover:bg-primary [&>button]:hover:text-primary-foreground';
-  const _rangeStartClassName = cn(buttonRangeClassName, 'day-range-start rounded-s-md', props.rangeStartClassName);
-  const _rangeEndClassName = cn(buttonRangeClassName, 'day-range-end rounded-e-md', props.rangeEndClassName);
+  const _rangeStartClassName = cn(buttonRangeClassName, `
+    day-range-start rounded-s-md
+  `, props.rangeStartClassName);
+  const _rangeEndClassName = cn(buttonRangeClassName, `
+    day-range-end rounded-e-md
+  `, props.rangeEndClassName);
   const _rangeMiddleClassName = cn(
-    'bg-accent !text-foreground [&>button]:bg-transparent [&>button]:!text-foreground [&>button]:hover:bg-transparent [&>button]:hover:!text-foreground',
+    `
+      bg-accent !text-foreground
+      [&>button]:bg-transparent [&>button]:!text-foreground
+      [&>button]:hover:bg-transparent [&>button]:hover:!text-foreground
+    `,
     props.rangeMiddleClassName,
   );
   const _selectedClassName = cn(
-    '[&>button]:bg-primary [&>button]:text-primary-foreground [&>button]:hover:bg-primary [&>button]:hover:text-primary-foreground',
+    `
+      [&>button]:bg-primary [&>button]:text-primary-foreground
+      [&>button]:hover:bg-primary [&>button]:hover:text-primary-foreground
+    `,
     props.selectedClassName,
   );
-  const _todayClassName = cn('[&>button]:bg-accent [&>button]:text-accent-foreground', props.todayClassName);
+  const _todayClassName = cn(`
+    [&>button]:bg-accent [&>button]:text-accent-foreground
+  `, props.todayClassName);
   const _outsideClassName = cn(
-    'day-outside text-muted-foreground opacity-50 aria-selected:bg-accent/50 aria-selected:text-muted-foreground aria-selected:opacity-30',
+    `
+      day-outside text-muted-foreground opacity-50
+      aria-selected:bg-accent/50 aria-selected:text-muted-foreground
+      aria-selected:opacity-30
+    `,
     props.outsideClassName,
   );
   const _disabledClassName = cn('text-muted-foreground opacity-50', props.disabledClassName);
@@ -269,7 +293,10 @@ function Nav({
     <nav className={ cn('flex items-center', className) }>
       <Button
         variant="outline"
-        className="absolute left-0 h-7 w-7 bg-transparent p-0 opacity-80 hover:opacity-100"
+        className={ `
+          absolute left-0 h-7 w-7 bg-transparent p-0 opacity-80
+          hover:opacity-100
+        ` }
         type="button"
         tabIndex={ isPreviousDisabled ? undefined : -1 }
         disabled={ isPreviousDisabled }
@@ -285,7 +312,10 @@ function Nav({
 
       <Button
         variant="outline"
-        className="absolute right-0 h-7 w-7 bg-transparent p-0 opacity-80 hover:opacity-100"
+        className={ `
+          absolute right-0 h-7 w-7 bg-transparent p-0 opacity-80
+          hover:opacity-100
+        ` }
         type="button"
         tabIndex={ isNextDisabled ? undefined : -1 }
         disabled={ isNextDisabled }
@@ -395,7 +425,9 @@ function YearGrid({
             key={ i }
             className={ cn(
               'h-7 w-full text-sm font-normal text-foreground',
-              displayYears.from + i === new Date().getFullYear() && 'bg-accent font-medium text-accent-foreground',
+              displayYears.from + i === new Date().getFullYear() && `
+                bg-accent font-medium text-accent-foreground
+              `,
             ) }
             variant="ghost"
             onClick={ () => {

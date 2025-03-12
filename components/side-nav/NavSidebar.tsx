@@ -11,10 +11,9 @@ import {
 
 import NavHeader from './NavHeader';
 import { NavFooter } from './NavFooter';
-import { LEFT_NAV_ITEMS } from './NavList';
-import { AddNewItem } from '../sidebar/NavAddNewItem';
-import { NavFlatSection } from '../sidebar/NavFlatSection';
-import { NavExpandableSection } from '../sidebar/NavExpandableSection';
+import { NavItemSearch } from '../sidebar/query-section/NavItemSearch';
+import NavItemAddNewBoba from '../sidebar/add-section/NavItemAddNewBoba';
+import NavSectionQuickAccess from '../sidebar/quick-access-section/NavSectionQuickAccess';
 
 export function NavSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -24,11 +23,11 @@ export function NavSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <NavExpandableSection items={ LEFT_NAV_ITEMS.navMain2 } />
-          <div className="my-2"></div>
-          <NavFlatSection items={ LEFT_NAV_ITEMS.navMain } />
+          <NavItemSearch />
           <div className="my-1"></div>
-          <AddNewItem />
+          <NavItemAddNewBoba />
+          <div className="my-1"></div>
+          <NavSectionQuickAccess />
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>

@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Caveat, Pacifico } from 'next/font/google';
+import { Caveat, Pacifico, Luckiest_Guy } from 'next/font/google';
 import { NextFontWithVariable } from 'next/dist/compiled/@next/font';
 
 export const geistFont: NextFontWithVariable = localFont({
@@ -138,6 +138,12 @@ export const pacificoFont = Pacifico({
 
 export const caveatFont = Caveat({
   weight: ['400', '700', '500', '600'],
+  style: 'normal',
+  subsets: ['latin'],
+});
+
+export const luckiestGuyFont = Luckiest_Guy({
+  weight: '400',
   style: 'normal',
   subsets: ['latin'],
 });

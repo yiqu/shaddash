@@ -16,16 +16,16 @@ export const viewport = {
 // Favicon configuration
 export const favicons = {
   icon: [
-    { url: '/images/todo.png', sizes: '32x32', type: 'image/png' },
-    { url: '/images/todo.png', sizes: '192x192', type: 'image/png' },
-    { url: '/images/todo.png', sizes: '512x512', type: 'image/png' },
+    { url: '/favicons/boba-favicon.png', sizes: '32x32', type: 'image/png' },
+    { url: '/favicons/boba-favicon.png', sizes: '192x192', type: 'image/png' },
+    { url: '/favicons/boba-favicon.png', sizes: '512x512', type: 'image/png' },
   ],
-  shortcut: [{ url: '/images/todo.png' }],
-  apple: [{ url: '/images/todo.png' }],
+  shortcut: [{ url: '/favicons/boba-favicon.png' }],
+  apple: [{ url: '/favicons/boba-favicon.png' }],
 };
 
 export const metadata: Metadata = {
-  title: 'KQ App',
+  title: 'Reminders For KQ',
   description: '',
   icons: favicons,
 };

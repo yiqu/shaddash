@@ -1,3 +1,4 @@
+/* eslint-disable readable-tailwind/multiline */
 'use client';
 
 import { ChevronRight } from 'lucide-react';
@@ -38,7 +39,7 @@ export default function NavExpandableItem({ item, isCollapsed }: { item: NestNav
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setOpen(false);
-    }, 300); // Small delay to prevent flickering
+    }, 100); // Small delay to prevent flickering
   };
 
   // If collapsed and has items, use Popover for hover menu
@@ -47,12 +48,14 @@ export default function NavExpandableItem({ item, isCollapsed }: { item: NestNav
       <SidebarMenuItem>
         <Popover open={ open } onOpenChange={ setOpen }>
           <PopoverTrigger asChild>
-            <SidebarMenuButton onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
+            <SidebarMenuButton
+              onMouseEnter={ handleMouseEnter }
+              onMouseLeave={ handleMouseLeave }
+              className="cursor-pointer"
+            >
               { item.icon ?
                 <item.icon />
               : null }
-              <span>{ item.title }</span>
-              <ChevronRight className="ml-auto" />
             </SidebarMenuButton>
           </PopoverTrigger>
           <PopoverContent
@@ -68,10 +71,7 @@ export default function NavExpandableItem({ item, isCollapsed }: { item: NestNav
                 <a
                   key={ subItem.title }
                   href={ subItem.url }
-                  className={ `
-                    hover:bg-accent hover:text-accent-foreground
-                    flex items-center rounded-md px-2 py-1.5 text-sm
-                  ` }
+                  className={ `flex items-center rounded-md px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground` }
                 >
                   { subItem.title }
                 </a>
@@ -85,9 +85,7 @@ export default function NavExpandableItem({ item, isCollapsed }: { item: NestNav
 
   // Default collapsible behavior when not collapsed
   return (
-    <Collapsible asChild defaultOpen={ item.isActive } className={ `
-      group/collapsible
-    ` }>
+    <Collapsible asChild defaultOpen={ item.isActive } className={ `group/collapsible` }>
       <SidebarMenuItem>
         <CollapsibleTrigger asChild>
           <SidebarMenuButton tooltip={ item.title }>
@@ -96,10 +94,7 @@ export default function NavExpandableItem({ item, isCollapsed }: { item: NestNav
             : null }
             <span>{ item.title }</span>
             <ChevronRight
-              className={ `
-                ml-auto transition-transform duration-200
-                group-data-[state=open]/collapsible:rotate-90
-              ` }
+              className={ `ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90` }
             />
           </SidebarMenuButton>
         </CollapsibleTrigger>

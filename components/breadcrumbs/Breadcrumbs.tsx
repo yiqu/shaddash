@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import {
@@ -19,7 +20,9 @@ export default function Breadcrumbs() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink asChild>
+            <Link href={ '/' }>{ 'Home' }</Link>
+          </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         { paths.map((path, index) => {
@@ -31,7 +34,9 @@ export default function Breadcrumbs() {
               { isLast ?
                 <BreadcrumbPage>{ path }</BreadcrumbPage>
               : <>
-                <BreadcrumbLink href={ href }>{ path }</BreadcrumbLink>
+                <BreadcrumbLink asChild>
+                  <Link href={ href }>{ path }</Link>
+                </BreadcrumbLink>
                 <BreadcrumbSeparator />
               </>
               }
