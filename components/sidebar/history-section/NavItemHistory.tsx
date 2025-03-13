@@ -2,8 +2,9 @@
 
 import { History as HistoryIcon } from 'lucide-react';
 
-import { NestNavListItem } from '@/components/models/nav.model';
-import { useSidebar, SidebarMenu } from '@/components/ui/sidebar';
+import { SidebarMenu } from '@/components/ui/sidebar';
+import { NestNavListItem } from '@/models/NavItem.models';
+import { SIDEBAR_COLLAPSABLE_HISTORY } from '@/constants/constants';
 
 import NavExpandableItem from '../NavExpandableItem';
 
@@ -13,23 +14,21 @@ const ITEMS: NestNavListItem[] = [
     url: '/history',
     icon: HistoryIcon,
     isActive: true,
+    collapsableStateCookieKey: SIDEBAR_COLLAPSABLE_HISTORY,
     items: [
       {
-        title: 'Milk tea, Lg, less ice, boba, jelly',
+        name: 'Milk tea, Lg, less ice, boba, jelly',
         url: '/history',
       },
       {
-        title: 'Mango tea, Lg, less ice, boba, jelly',
+        name: 'Mango tea, Lg, less ice, boba, jelly',
         url: '/history',
       },
     ],
   },
 ];
 
-export function NavItemHistory() {
-  const { state } = useSidebar();
-  const isCollapsed = state === 'collapsed';
-
+export function NavItemHistory({ isCollapsed }: { isCollapsed: boolean }) {
   return (
     <>
       <SidebarMenu className="gap-2">

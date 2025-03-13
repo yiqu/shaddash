@@ -9,6 +9,7 @@ const ITEMS: LeftNavItem[] = [
     name: 'Search',
     url: '/search',
     icon: Search,
+    tooltip: 'Search',
   },
 ];
 
@@ -19,7 +20,7 @@ export function NavItemSearch() {
       <SidebarMenu className="gap-2">
         { ITEMS.map((item) => (
           <SidebarMenuItem key={ item.name }>
-            <SidebarMenuButton asChild>
+            <SidebarMenuButton asChild tooltip={ item.tooltip }>
               <Link href={ item.url }>
                 <item.icon />
                 <span>{ item.name }</span>

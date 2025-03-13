@@ -2,8 +2,9 @@
 
 import { FolderHeart } from 'lucide-react';
 
-import { NestNavListItem } from '@/components/models/nav.model';
-import { useSidebar, SidebarMenu } from '@/components/ui/sidebar';
+import { SidebarMenu } from '@/components/ui/sidebar';
+import { NestNavListItem } from '@/models/NavItem.models';
+import { SIDEBAR_COLLAPSABLE_FAVORITES } from '@/constants/constants';
 
 import NavExpandableItem from '../NavExpandableItem';
 
@@ -12,24 +13,22 @@ const ITEMS: NestNavListItem[] = [
     title: 'Favorites',
     url: '/favorites',
     icon: FolderHeart,
-    isActive: true,
+    isActive: false,
+    collapsableStateCookieKey: SIDEBAR_COLLAPSABLE_FAVORITES,
     items: [
-      {
-        title: 'Jasmine tea, Lg, less ice, boba, jelly',
-        url: '/favorites',
-      },
-      {
-        title: 'Brown sugar tea, Lg, less ice, boba, jelly',
-        url: '/favorites',
-      },
+      // {
+      //   name: 'Jasmine tea, Lg, less ice, boba, jelly',
+      //   url: '/favorites',
+      // },
+      // {
+      //   name: 'Brown sugar tea, Lg, less ice, boba, jelly',
+      //   url: '/favorites',
+      // },
     ],
   },
 ];
 
-export function NavItemFavorites() {
-  const { state } = useSidebar();
-  const isCollapsed = state === 'collapsed';
-
+export function NavItemFavorites({ isCollapsed }: { isCollapsed: boolean }) {
   return (
     <>
       <SidebarMenu className="gap-2">

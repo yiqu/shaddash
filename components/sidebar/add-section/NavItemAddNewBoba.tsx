@@ -44,6 +44,7 @@ export default function NavItemAddNewBoba() {
   const isCollapsed = state === 'collapsed';
   const [open, setOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -65,10 +66,17 @@ export default function NavItemAddNewBoba() {
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
+    if (!isMenuOpen) {
+      setIsHovered(false);
+    }
+
     timeoutRef.current = setTimeout(() => {
       setOpen(false);
     }, 100); // Small delay to prevent flickering
+  };
+
+  const handleOnMenuOpenChange = (open: boolean) => {
+    setIsMenuOpen(open);
   };
 
   // If collapsed and has items, use Popover for hover menu
@@ -123,7 +131,7 @@ export default function NavItemAddNewBoba() {
               <span>New Boba</span>
             </Link>
           </SidebarMenuButton>
-          <DropdownMenu>
+          <DropdownMenu onOpenChange={ handleOnMenuOpenChange }>
             <DropdownMenuTrigger asChild>
               <SidebarMenuAction className="cursor-pointer">
                 <MoreHorizontal
@@ -136,11 +144,11 @@ export default function NavItemAddNewBoba() {
             <DropdownMenuContent side="right" align="start" className="w-48">
               { BOBA_TEA_CATEGORIES.map((item) => {
                 return (
-                  <DropdownMenuItem asChild key={ item.name }>
-                    <a href={ item.url }>
+                  <DropdownMenuItem asChild key={ item.name } className="cursor-pointer">
+                    <Link href={ item.url }>
                       <Folder className="mr-2 h-4 w-4" />
                       <span>{ item.name }</span>
-                    </a>
+                    </Link>
                   </DropdownMenuItem>
                 );
               }) }

@@ -6,3 +6,8 @@ body {
 .kq-light-shadow {
   box-shadow: 0 3px 2px -2px var(--color-kq-shadow);
 }
+
+html.dark [data-hide-on-theme='dark'],
+html:not(.dark) [data-hide-on-theme='light'] {
+  display: none;
+}

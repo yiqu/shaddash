@@ -7,6 +7,15 @@ export interface LeftNavItem {
   icon: LucideIcon;
 }
 
+export interface NestNavListItem {
+  title: string;
+  url: string;
+  icon?: LucideIcon;
+  isActive?: boolean;
+  items?: LinkItem[];
+}
+
+
 export interface LinkItem {
   name: string;
   url: string;
