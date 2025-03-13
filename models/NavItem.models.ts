@@ -1,5 +1,7 @@
 import { type LucideIcon } from 'lucide-react';
 
+import { SIDEBAR_COLLAPSABLE_HISTORY, SIDEBAR_COLLAPSABLE_FAVORITES } from '@/constants/constants';
+
 export interface LeftNavItem {
   name: string;
   tooltip?: string;
@@ -13,8 +15,8 @@ export interface NestNavListItem {
   icon?: LucideIcon;
   isActive?: boolean;
   items?: LinkItem[];
+  collapsableStateCookieKey?: typeof SIDEBAR_COLLAPSABLE_FAVORITES | typeof SIDEBAR_COLLAPSABLE_HISTORY;
 }
-
 
 export interface LinkItem {
   name: string;
