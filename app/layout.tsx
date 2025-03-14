@@ -1,4 +1,6 @@
 /* eslint-disable readable-tailwind/multiline */
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
+
 import { geistFont } from '@/lib/fonts-config';
 import AppLayout from '@/components/layout/AppLayout';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
@@ -39,9 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={ `${geistFont.className} antialiased` }>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={ false } disableTransitionOnChange>
-          <AppLayout>{ children }</AppLayout>
-        </ThemeProvider>
+        <NuqsAdapter>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={ false } disableTransitionOnChange>
+            <AppLayout>{ children }</AppLayout>
+          </ThemeProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );
