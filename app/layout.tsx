@@ -1,7 +1,11 @@
 /* eslint-disable readable-tailwind/multiline */
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import { geistFont } from '@/lib/fonts-config';
+import theme from '@/components/ui-custom/mui/theme';
 import AppLayout from '@/components/layout/AppLayout';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
@@ -41,11 +45,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={ `${geistFont.className} antialiased` }>
-        <NuqsAdapter>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={ false } disableTransitionOnChange>
-            <AppLayout>{ children }</AppLayout>
-          </ThemeProvider>
-        </NuqsAdapter>
+        { /* <InitColorSchemeScript attribute="class" /> */ }
+        <AppRouterCacheProvider options={ { enableCssLayer: true } }>
+          <MuiThemeProvider theme={ theme }>
+            <NuqsAdapter>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="light"
+                enableSystem={ false }
+                disableTransitionOnChange
+                storageKey="next-theme-mode"
+              >
+                { /* <CssBaseline /> */ }
+                <AppLayout>{ children }</AppLayout>
+              </ThemeProvider>
+            </NuqsAdapter>
+          </MuiThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
