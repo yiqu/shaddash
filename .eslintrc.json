@@ -14,7 +14,8 @@
     "eslint-plugin-react-compiler",
     "unicorn",
     "readable-tailwind",
-    "@tanstack/query"
+    "@tanstack/query",
+    "mui-path-imports"
   ],
   "rules": {
     "@next/next/no-img-element": 1,
@@ -26,6 +27,7 @@
     "import/no-duplicates": "off",
     "import/no-empty-named-blocks": 2,
     "jsx-quotes": [1, "prefer-double"],
+    "mui-path-imports/mui-path-imports": "error",
     "no-confusing-arrow": ["error"],
     "no-console": [
       "warn",

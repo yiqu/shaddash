@@ -2,37 +2,24 @@
 
 import { createTheme } from '@mui/material/styles';
 
-import { Roboto } from 'next/font/google';
-
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { geistFont } from '@/lib/fonts-config';
 
 const theme = createTheme({
-  // colorSchemes: { light: true, dark: true },
-  // cssVariables: {
-  //   colorSchemeSelector: 'class',
-  // },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
+  // The colorSchemes property configures the theme's color schemes
+  // When set to { light: true, dark: true }, it enables both light and dark modes
+  // This allows the theme to adapt based on the user's preference or system setting
+  // Each scheme can also be customized with specific palette options instead of boolean values
+  colorSchemes: { light: true, dark: true },
+  cssVariables: {
+    colorSchemeSelector: 'data-mui-color-scheme',
   },
+  typography: {
+    fontFamily: geistFont.style.fontFamily,
+  },
+
+  // MUI Components overrides
   components: {
-    MuiAlert: {
-      styleOverrides: {
-        root: {
-          variants: [
-            {
-              props: { severity: 'info' },
-              style: {
-                backgroundColor: '#60a5fa',
-              },
-            },
-          ],
-        },
-      },
-    },
+    // ... overrides
   },
 });
 

@@ -1,4 +1,5 @@
 /* eslint-disable readable-tailwind/multiline */
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
@@ -45,16 +46,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={ `${geistFont.className} antialiased` }>
-        { /* <InitColorSchemeScript attribute="class" /> */ }
+        <InitColorSchemeScript defaultMode="light" attribute="data-mui-color-scheme" />
         <AppRouterCacheProvider options={ { enableCssLayer: true } }>
-          <MuiThemeProvider theme={ theme }>
+          <MuiThemeProvider theme={ theme } defaultMode="light">
             <NuqsAdapter>
               <ThemeProvider
                 attribute="class"
                 defaultTheme="light"
                 enableSystem={ false }
                 disableTransitionOnChange
-                storageKey="next-theme-mode"
+                storageKey="theme"
               >
                 { /* <CssBaseline /> */ }
                 <AppLayout>{ children }</AppLayout>

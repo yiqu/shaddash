@@ -1,5 +1,7 @@
 'use client';
 
+import { useColorScheme } from '@mui/material/styles';
+
 import { Sun } from 'lucide-react';
 import { Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -12,6 +14,7 @@ import { Skeleton } from '../ui/skeleton';
 export default function ThemeToggleButton() {
   const [mounted, setMounted] = useState(false);
   const { setTheme, theme }: UseThemeProps = useTheme();
+  const { setMode } = useColorScheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
@@ -20,6 +23,7 @@ export default function ThemeToggleButton() {
 
   const handleOnThemeUpdate = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
+    setMode(theme === 'light' ? 'dark' : 'light');
   };
 
   // Prevent hydration mismatch by not rendering theme-dependent content until mounted

@@ -47,8 +47,6 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
- 
-
   @keyframes accordion-down {
     from {
       height: 0;
@@ -153,5 +151,39 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .gap-mui-1 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-mui-2 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-mui-3 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-mui-4 {
+    gap: calc(var(--spacing) * 8);
+  }
+  .gap-mui-5 {
+    gap: calc(var(--spacing) * 10);
+  }
+  .gap-mui-6 {
+    gap: calc(var(--spacing) * 12);
+  }
+  .gap-mui-7 {
+    gap: calc(var(--spacing) * 14);
+  }
+  .gap-mui-8 {
+    gap: calc(var(--spacing) * 16);
+  }
+  .gap-mui-9 {
+    gap: calc(var(--spacing) * 18);
+  }
+  .gap-mui-10 {
+    gap: calc(var(--spacing) * 20);
   }
 }

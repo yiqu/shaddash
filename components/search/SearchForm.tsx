@@ -1,11 +1,15 @@
 import Grid from '@mui/material/Grid2';
+import Stack from "@mui/material/Stack";
+import Grid2 from '@mui/material/Grid2';
+
+import LayoutWithGutter from '../layout/LayoutWithGutter';
 
 export default function SearchForm() {
   return (
-    <Grid container>
-      <Grid size={ { xs: 12, sm: 6 } } offset={ { xs: 0, sm: 3 } }>
-        FORM
-      </Grid>
-    </Grid>
+    <LayoutWithGutter size="wider" gridProps={ { className: 'HELLO' } }>
+      <Stack direction="column">
+        
+      </Stack>
+    </LayoutWithGutter>
   );
 }
