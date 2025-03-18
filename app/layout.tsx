@@ -9,6 +9,7 @@ import { geistFont } from '@/lib/fonts-config';
 import theme from '@/components/ui-custom/mui/theme';
 import AppLayout from '@/components/layout/AppLayout';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
+import TanstackQueryClientProvider from '@/providers/TanstackQueryClientProvider';
 
 import type { Metadata } from 'next';
 
@@ -50,16 +51,18 @@ export default function RootLayout({
         <AppRouterCacheProvider options={ { enableCssLayer: true } }>
           <MuiThemeProvider theme={ theme } defaultMode="light">
             <NuqsAdapter>
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="light"
-                enableSystem={ false }
-                disableTransitionOnChange
-                storageKey="theme"
-              >
-                { /* <CssBaseline /> */ }
-                <AppLayout>{ children }</AppLayout>
-              </ThemeProvider>
+              <TanstackQueryClientProvider>
+                <ThemeProvider
+                  attribute="class"
+                  defaultTheme="light"
+                  enableSystem={ false }
+                  disableTransitionOnChange
+                  storageKey="theme"
+                >
+                  { /* <CssBaseline /> */ }
+                  <AppLayout>{ children }</AppLayout>
+                </ThemeProvider>
+              </TanstackQueryClientProvider>
             </NuqsAdapter>
           </MuiThemeProvider>
         </AppRouterCacheProvider>
