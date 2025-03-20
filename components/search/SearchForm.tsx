@@ -25,7 +25,7 @@ export default function SearchForm() {
 
   return (
     <LayoutWithGutter size="wider" gridProps={ { className: 'HELLO' } }>
-      <Stack direction="column">
+      <Stack direction="row">
         <Typography>Data:</Typography>
         <Typography>{ data?.data.name }</Typography>
       </Stack>
