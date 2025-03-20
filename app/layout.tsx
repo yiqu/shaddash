@@ -3,6 +3,7 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
+import { Suspense } from 'react';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import { geistFont } from '@/lib/fonts-config';
@@ -60,7 +61,9 @@ export default function RootLayout({
                   storageKey="theme"
                 >
                   { /* <CssBaseline /> */ }
-                  <AppLayout>{ children }</AppLayout>
+                  <Suspense>
+                    <AppLayout>{ children }</AppLayout>
+                  </Suspense>
                 </ThemeProvider>
               </TanstackQueryClientProvider>
             </NuqsAdapter>

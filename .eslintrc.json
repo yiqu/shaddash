@@ -167,5 +167,10 @@
     "readable-tailwind/no-unnecessary-whitespace": 1,
     "readable-tailwind/sort-classes": "off",
     "readable-tailwind/no-duplicate-classes": 2
+  },
+  "settings": {
+    "readable-tailwind": {
+      "entryPoint": ["./app/tailwind-config.css"]
+    }
   }
 }

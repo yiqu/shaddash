@@ -52,6 +52,7 @@ export const geistFont: NextFontWithVariable = localFont({
   ],
   variable: '--geist-font', // Optional: Define a CSS variable name
   display: 'swap',
+  preload: true,
 });
 
 export const geistMonoFont: NextFontWithVariable = localFont({
@@ -104,6 +105,7 @@ export const geistMonoFont: NextFontWithVariable = localFont({
   ],
   variable: '--geist-mono-font', // Optional: Define a CSS variable name
   display: 'swap',
+  preload: true,
 });
 
 export const rubikBubblesFont: NextFontWithVariable = localFont({
@@ -116,6 +118,7 @@ export const rubikBubblesFont: NextFontWithVariable = localFont({
   ],
   variable: '--rubik-font', // Optional: Define a CSS variable name
   display: 'swap',
+  preload: true,
 });
 
 export const cherryFont: NextFontWithVariable = localFont({
@@ -128,22 +131,26 @@ export const cherryFont: NextFontWithVariable = localFont({
   ],
   variable: '--cherry-font', // Optional: Define a CSS variable name
   display: 'swap',
+  preload: true,
 });
 
 export const pacificoFont = Pacifico({
   weight: '400',
   style: 'normal',
   subsets: ['latin'],
+  preload: true,
 });
 
 export const caveatFont = Caveat({
   weight: ['400', '700', '500', '600'],
   style: 'normal',
   subsets: ['latin'],
+  preload: true,
 });
 
 export const luckiestGuyFont = Luckiest_Guy({
   weight: '400',
   style: 'normal',
   subsets: ['latin'],
+  preload: true,
 });
