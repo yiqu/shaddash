@@ -1,0 +1,1 @@
+export const FIREBASE_API_BASE_URL = 'https://kq-1-1a499.firebaseio.com';

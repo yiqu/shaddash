@@ -154,8 +154,18 @@
   }
 }
 
+
 /* Custom utility classes */
-@layer utilities {
+@layer layout-utilities {
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  body[data-scroll-locked] {
+    margin-right: 0px !important;
+  }
+  
+
   .gap-mui-1 {
     gap: calc(var(--spacing) * 2);
   }

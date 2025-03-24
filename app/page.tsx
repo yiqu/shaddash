@@ -6,7 +6,6 @@ export default function Home() {
     <section className="flex flex-col gap-2">
       <section className="mb-2">Welcome!</section>
       <SearchInput />
-      <TeaSelectionComboBox />
       <section className="h-[100rem]">Welcome!</section>
     </section>
   );

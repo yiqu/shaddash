@@ -9,6 +9,7 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { geistFont } from '@/lib/fonts-config';
 import theme from '@/components/ui-custom/mui/theme';
 import AppLayout from '@/components/layout/AppLayout';
+import CustomToaster from '@/components/toaster/CustomToaster';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import TanstackQueryClientProvider from '@/providers/TanstackQueryClientProvider';
 
@@ -64,6 +65,7 @@ export default function RootLayout({
                   <Suspense>
                     <AppLayout>{ children }</AppLayout>
                   </Suspense>
+                  <CustomToaster />
                 </ThemeProvider>
               </TanstackQueryClientProvider>
             </NuqsAdapter>
