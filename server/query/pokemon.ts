@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { Pokemon } from '@/models/Pokemon.models';
+import { Pokemon } from '@/models/pokemon/Pokemon.models';
 
 export async function getRandomPokemon(): Promise<AxiosResponse<Pokemon>> {
   // create random ID between 1 and 151

@@ -1,7 +1,9 @@
 /* eslint-disable readable-tailwind/multiline */
 'use client';
+
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { useRef, useState, useEffect } from 'react';
 import { useOptimistic, useTransition } from 'react';
 
@@ -80,15 +82,16 @@ export default function NavExpandableItem({ item, isCollapsed }: NavExpandableIt
       <SidebarMenuItem>
         <Popover open={ isCollapsedMenuOpen } onOpenChange={ setIsCollapsedMenuOpen }>
           <PopoverTrigger asChild>
-            <SidebarMenuButton
+            <MenuItemButton
               onMouseEnter={ handleMouseEnter }
               onMouseLeave={ handleMouseLeave }
               className="cursor-pointer"
+              item={ item }
             >
               { item.icon ?
                 <item.icon />
               : null }
-            </SidebarMenuButton>
+            </MenuItemButton>
           </PopoverTrigger>
           <PopoverContent
             side="right"
@@ -109,7 +112,7 @@ export default function NavExpandableItem({ item, isCollapsed }: NavExpandableIt
     <Collapsible asChild open={ optimisticState } className={ `group/collapsible` } onOpenChange={ handleOnOpenChange }>
       <SidebarMenuItem>
         <CollapsibleTrigger asChild>
-          <SidebarMenuButton tooltip={ item.title } className="cursor-pointer">
+          <MenuItemButton item={ item }>
             { item.icon ?
               <item.icon />
             : null }
@@ -120,7 +123,7 @@ export default function NavExpandableItem({ item, isCollapsed }: NavExpandableIt
                 className={ `ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90` }
               />
             }
-          </SidebarMenuButton>
+          </MenuItemButton>
         </CollapsibleTrigger>
         <CollapsibleContent>
           <SidebarMenuSub>
@@ -185,5 +188,21 @@ function CollapsedMenuContentMenuItems({ items }: { items?: LinkItem[] }) {
         </Link>
       )) }
     </div>
+  );
+}
+
+function MenuItemButton({
+  children,
+  item,
+  ...props
+}: { children: React.ReactNode; item: NestNavListItem } & React.ComponentProps<'button'>) {
+  const pathname = usePathname();
+  const firstPath = pathname.split('/')[1] || '';
+  const isActive = firstPath.toLowerCase() === item.url.toLowerCase();
+
+  return (
+    <SidebarMenuButton className="cursor-pointer" isActive={ isActive } { ...props }>
+      { children }
+    </SidebarMenuButton>
   );
 }

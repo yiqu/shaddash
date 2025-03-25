@@ -3,10 +3,10 @@
 
 import Link from 'next/link';
 import { useRef, useState, useEffect } from 'react';
-import { Plus, Folder, MoreHorizontal } from 'lucide-react';
+import { Folder, MoreHorizontal } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { LinkItem } from '@/models/NavItem.models';
+import { LinkItem, LeftNavItem } from '@/models/NavItem.models';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import {
   DropdownMenu,
@@ -19,9 +19,11 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuAction,
-  SidebarMenuButton,
   SidebarGroupLabel,
 } from '@/components/ui/sidebar';
+
+import MenuButton from '../MenuButton';
+import CollapsedMenuButton from '../CollapsedMenuButton';
 
 const BOBA_TEA_CATEGORIES: LinkItem[] = [
   {
@@ -38,6 +40,11 @@ const BOBA_TEA_CATEGORIES: LinkItem[] = [
   },
 ];
 
+const NEW_ITEM: LeftNavItem = {
+  name: 'New Boba',
+  url: 'new',
+  tooltip: 'New Boba',
+};
 export default function NavItemAddNewBoba() {
   const { isMobile } = useSidebar();
   const { state } = useSidebar();
@@ -86,13 +93,7 @@ export default function NavItemAddNewBoba() {
         <SidebarMenuItem>
           <Popover open={ open } onOpenChange={ setOpen }>
             <PopoverTrigger asChild>
-              <SidebarMenuButton
-                onMouseEnter={ handleMouseEnter }
-                onMouseLeave={ handleMouseLeave }
-                className="cursor-pointer"
-              >
-                <Plus />
-              </SidebarMenuButton>
+              <CollapsedMenuButton item={ NEW_ITEM } onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave } />
             </PopoverTrigger>
             <PopoverContent
               side="right"
@@ -125,12 +126,7 @@ export default function NavItemAddNewBoba() {
       <SidebarGroupLabel>Add</SidebarGroupLabel>
       <SidebarMenu>
         <SidebarMenuItem onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
-          <SidebarMenuButton asChild>
-            <Link href="/new">
-              <Plus />
-              <span>New Boba</span>
-            </Link>
-          </SidebarMenuButton>
+          <MenuButton item={ NEW_ITEM } />
           <DropdownMenu onOpenChange={ handleOnMenuOpenChange }>
             <DropdownMenuTrigger asChild>
               <SidebarMenuAction className="cursor-pointer">

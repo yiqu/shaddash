@@ -11,9 +11,8 @@ import NavExpandableItem from '../NavExpandableItem';
 const ITEMS: NestNavListItem[] = [
   {
     title: 'Favorites',
-    url: '/favorites',
+    url: 'favorites',
     icon: FolderHeart,
-    isActive: false,
     collapsableStateCookieKey: SIDEBAR_COLLAPSABLE_FAVORITES,
     items: [
       // {

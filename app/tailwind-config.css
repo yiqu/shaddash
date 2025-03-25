@@ -154,6 +154,22 @@
   }
 }
 
+@layer app-colors {
+  .logo-text-color {
+    @apply text-amber-700;
+  }
+}
+
+@layer app-sidebar-menu {
+  .app-sidebar-group {
+    a[data-active='true'] {
+      @apply bg-transparent font-bold text-amber-700;
+    }
+    button[data-active='true'] {
+      @apply bg-transparent font-bold text-amber-700;
+    }
+  }
+}
 
 /* Custom utility classes */
 @layer layout-utilities {
@@ -164,7 +180,6 @@
   body[data-scroll-locked] {
     margin-right: 0px !important;
   }
-  
 
   .gap-mui-1 {
     gap: calc(var(--spacing) * 2);

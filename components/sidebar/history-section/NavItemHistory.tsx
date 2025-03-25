@@ -11,9 +11,8 @@ import NavExpandableItem from '../NavExpandableItem';
 const ITEMS: NestNavListItem[] = [
   {
     title: 'History',
-    url: '/history',
+    url: 'history',
     icon: HistoryIcon,
-    isActive: true,
     collapsableStateCookieKey: SIDEBAR_COLLAPSABLE_HISTORY,
     items: [
       {

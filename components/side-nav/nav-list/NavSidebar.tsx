@@ -24,7 +24,7 @@ export async function NavSidebar({ ...props }: React.ComponentProps<typeof Sideb
         <NavHeader />
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
+        <SidebarGroup className="app-sidebar-group">
           <NavItemSearch />
           <div className="my-1"></div>
           <NavItemAddNewBoba />

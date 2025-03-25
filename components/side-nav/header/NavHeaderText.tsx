@@ -13,7 +13,7 @@ export default function NavHeaderText() {
     <div className="relative h-8 w-full overflow-hidden">
       <span
         className={ cn(
-          `absolute top-1/2 left-0 -translate-y-1/2 text-2xl font-normal whitespace-nowrap text-amber-700 transition-all duration-300 ease-out will-change-transform`,
+          `logo-text-color absolute top-1/2 left-0 -translate-y-1/2 text-2xl font-normal whitespace-nowrap transition-all duration-300 ease-out will-change-transform`,
           luckiestGuyFont.className,
           isSidebarCollapsed ? 'invisible translate-x-8 opacity-0' : `visible translate-x-0 opacity-100`,
         ) }

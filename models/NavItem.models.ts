@@ -6,7 +6,7 @@ export interface LeftNavItem {
   name: string;
   tooltip?: string;
   url: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
 }
 
 export interface NestNavListItem {
