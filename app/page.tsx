@@ -5,10 +5,16 @@ import BlurText from '@/components/reactbits/TextAnimations/BlueText/BlueText';
 import SplitText from '@/components/reactbits/TextAnimations/SplitText/SplitText';
 import ShinyText from '@/components/reactbits/TextAnimations/ShinyText/ShinyText';
 import FuzzyText from '@/components/reactbits/TextAnimations/FuzzyText/FuzzyText';
+import TrueFocus from '@/components/reactbits/TextAnimations/TrueFocus/TrueFocus';
+import ASCIIText from '@/components/reactbits/TextAnimations/ASCIIText/ASCIIText';
+import TextCursor from '@/components/reactbits/TextAnimations/TextCursor/TextCursor';
 import FallingText from '@/components/reactbits/TextAnimations/FallingText/FallingText';
 import CircularText from '@/components/reactbits/TextAnimations/CircularText/CircularText';
 import TextPressure from '@/components/reactbits/TextAnimations/TextPressure/TextPressure';
 import GradientText from '@/components/reactbits/TextAnimations/GradientText/GradientText';
+import ScrollReveal from '@/components/reactbits/TextAnimations/ScrollReveal/ScrollReveal';
+import RotatingText from '@/components/reactbits/TextAnimations/RotatingText/RotatingText';
+import DecryptedText from '@/components/reactbits/TextAnimations/DecryptedText/DecryptedText';
 export default function Home() {
   return (
     <section className="flex flex-col gap-2">
@@ -58,14 +64,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start gap-2">
-        <FuzzyText baseIntensity={ 0.2 } hoverIntensity={ 0.5 } enableHover={ true }>
-          404
-        </FuzzyText>
-        <FuzzyText baseIntensity={ 0.2 } hoverIntensity={ 0.5 } enableHover={ true } color="blue" fontSize="32px">
-          Not found
-        </FuzzyText>
-      </div>
+
       <div>
         <GradientText
           colors={ ['#40ffaa', '#4079ff', '#40ffaa', '#4079ff', '#40ffaa'] }
@@ -76,7 +75,7 @@ export default function Home() {
           <p className="text-[12px]">Add a splash of color!</p>
         </GradientText>
       </div>
-      <div className="h-[20rem] border-2 border-red-500 w-[20rem]">
+      <div className="h-[20rem] w-[20rem] border-2 border-red-500">
         <FallingText
           text={ `React Bits is a library of animated and interactive React components designed to streamline UI development and simplify your workflow.` }
           highlightWords={ ['React', 'Bits', 'animated', 'components', 'simplify'] }
@@ -88,6 +87,73 @@ export default function Home() {
           mouseConstraintStiffness={ 0.9 }
         />
       </div>
+
+      <div className="flex flex-col items-start justify-start gap-2">
+        <FuzzyText baseIntensity={ 0.2 } hoverIntensity={ 0.5 } enableHover={ true }>
+          404
+        </FuzzyText>
+        <FuzzyText baseIntensity={ 0.2 } hoverIntensity={ 0.5 } enableHover={ true } color="blue">
+          Not found
+        </FuzzyText>
+      </div>
+
+      <section>
+        { /* Example 1: Defaults (hover to decrypt) */ }
+        <DecryptedText
+          text="Boba Shop"
+          characters="ABCD1234!?"
+          speed={ 100 }
+          revealDirection="end"
+          parentClassName={ `font-semibold ${luckiestGuyFont.className} text-amber-500 text-3xl` }
+          maxIterations={ 30 }
+        />
+        <div>
+          { /* Example 2: Customized speed and characters */ }
+          <DecryptedText
+            text="Customize me"
+            speed={ 100 }
+            maxIterations={ 20 }
+            characters="ABCD1234!?"
+            className="revealed"
+            parentClassName="all-letters"
+            encryptedClassName="encrypted"
+          />
+        </div>
+
+        { /* Example 3: Animate on view (runs once) */ }
+        <div>
+          <DecryptedText text="This text animates when in view" animateOn="view" revealDirection="center" />
+        </div>
+      </section>
+      <section className="flex flex-col border-2 border-red-500">
+        <TrueFocus
+          sentence="Where is my Boba Tea?"
+          manualMode={ true }
+          blurAmount={ 5 }
+          borderColor="purple"
+          animationDuration={ 0.7 }
+          pauseBetweenAnimations={ 1 }
+          parentClassName={ 'flex flex-row justify-start items-center' }
+        />
+      </section>
+
+      <section className="flex flex-row gap-x-2 justify-start items-center">
+        <p className="font-semibold">
+          Hello: 
+        </p>
+        <RotatingText
+          texts={ ['React', 'Bits', 'Is', 'Cool'] }
+          mainClassName="px-2 sm:px-2 md:px-5 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-1.5 justify-center rounded-lg font-semibold italic"
+          staggerFrom={ 'last' }
+          initial={ { y: '100%' } }
+          animate={ { y: 0 } }
+          exit={ { y: '-120%' } }
+          staggerDuration={ 0.025 }
+          splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-0"
+          transition={ { type: 'spring', damping: 30, stiffness: 400 } }
+          rotationInterval={ 2300 }
+        />
+      </section>
     </section>
   );
 }

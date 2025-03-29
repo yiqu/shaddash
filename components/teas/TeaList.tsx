@@ -7,7 +7,7 @@ export default async function TeaList() {
   const teas: Tea[] = await getTeas();
 
   return (
-    <Stack direction="column" spacing={ 1 }>
+    <section className="h-full w-full gap-y-4 flex flex-col">
       { teas.map((tea) => {
         return (
           <Stack key={ tea.name }>
@@ -17,6 +17,6 @@ export default async function TeaList() {
           </Stack>
         );
       }) }
-    </Stack>
+    </section>
   );
 }
