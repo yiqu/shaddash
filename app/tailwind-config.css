@@ -171,6 +171,37 @@
   }
 }
 
+@layer react-bits-text-animations {
+  @keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
+    }
+  }
+  .animate-shine {
+    animation: shine 5s linear infinite;
+  }
+}
+
+@layer react-bits-text-animations-shiny-text {
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+  }
+}
+
 /* Custom utility classes */
 @layer layout-utilities {
   html {
