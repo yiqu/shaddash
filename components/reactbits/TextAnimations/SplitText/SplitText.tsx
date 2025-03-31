@@ -98,6 +98,7 @@ const SplitText: React.FC<SplitTextProps> = ({
                 ` }
               >
                 { letter }
+                { /* @ts-ignore */ }
               </animated.span>
             );
           }) }
