@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { animated, useSprings, SpringValue } from '@react-spring/web';
 
+// @ts-ignore
 const AnimatedSpan = animated.span as React.FC<React.HTMLAttributes<HTMLSpanElement>>;
 
 interface BlurTextProps {
