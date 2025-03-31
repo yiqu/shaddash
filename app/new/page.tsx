@@ -4,6 +4,7 @@ import { unstable_cacheTag } from 'next/cache';
 import { Button } from '@/components/ui/button';
 import { revalidateTeaList } from '@/server/teas/teas';
 
+import { FormExample } from './_components/InputForm';
 import RevalidButton from './_components/RevalidButton';
 
 export default async function NewBobaPage({
@@ -22,6 +23,9 @@ export default async function NewBobaPage({
     <div>
       New Boba { currentTime }
       <RevalidButton />
+      <section>
+        <FormExample />
+      </section>
     </div>
   );
 }

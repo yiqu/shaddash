@@ -1,13 +1,21 @@
 import { luckiestGuyFont } from '@/lib/fonts-config';
 import SearchInput from '@/components/home/SearchInput';
+import Orb from '@/components/reactbits/Backgrounds/Orb/Orb';
 import { TeaSelectionComboBox } from '@/components/home/TeaSelection';
+import Aurora from '@/components/reactbits/Backgrounds/Aurora/Aurora';
+import Lanyard from '@/components/reactbits/Components/Lanyard/Lanyard';
+import CountUp from '@/components/reactbits/TextAnimations/CountUp/CountUp';
+import MetaBalls from '@/components/reactbits/Animations/MetaBalls/MetaBalls';
 import BlurText from '@/components/reactbits/TextAnimations/BlueText/BlueText';
 import SplitText from '@/components/reactbits/TextAnimations/SplitText/SplitText';
 import ShinyText from '@/components/reactbits/TextAnimations/ShinyText/ShinyText';
 import FuzzyText from '@/components/reactbits/TextAnimations/FuzzyText/FuzzyText';
 import TrueFocus from '@/components/reactbits/TextAnimations/TrueFocus/TrueFocus';
 import ASCIIText from '@/components/reactbits/TextAnimations/ASCIIText/ASCIIText';
+import MagnetLines from '@/components/reactbits/Animations/MagnetLines/MagnetLines';
 import TextCursor from '@/components/reactbits/TextAnimations/TextCursor/TextCursor';
+import GlitchText from '@/components/reactbits/TextAnimations/GlitchText/GlitchText';
+import SplashCursor from '@/components/reactbits/Animations/SplashCursor/SplashCursor';
 import FallingText from '@/components/reactbits/TextAnimations/FallingText/FallingText';
 import CircularText from '@/components/reactbits/TextAnimations/CircularText/CircularText';
 import TextPressure from '@/components/reactbits/TextAnimations/TextPressure/TextPressure';
@@ -73,6 +81,9 @@ export default function Home() {
           className="flex- flex-row justify-start"
         >
           <p className="text-[12px]">Add a splash of color!</p>
+          <CountUp from={ 0 } to={ 1000 } separator="," direction="up" duration={ 1.25 } className={ `
+            count-up-text
+          ` } />
         </GradientText>
       </div>
       <div className="h-[20rem] w-[20rem] border-2 border-red-500">
@@ -137,10 +148,8 @@ export default function Home() {
         />
       </section>
 
-      <section className="flex flex-row gap-x-2 justify-start items-center">
-        <p className="font-semibold">
-          Hello: 
-        </p>
+      <section className="flex flex-row items-center justify-start gap-x-2">
+        <p className="font-semibold">Hello:</p>
         <RotatingText
           texts={ ['React', 'Bits', 'Is', 'Cool'] }
           mainClassName="px-2 sm:px-2 md:px-5 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-1.5 justify-center rounded-lg font-semibold italic"
@@ -153,6 +162,37 @@ export default function Home() {
           transition={ { type: 'spring', damping: 30, stiffness: 400 } }
           rotationInterval={ 2300 }
         />
+      </section>
+
+      <section>
+        <CountUp from={ 0 } to={ 1000 } separator="," direction="up" duration={ 1.25 } className={ `
+          count-up-text
+        ` } />
+      </section>
+
+      <section>{ /* <SplashCursor /> */ }</section>
+      <section className="flex flex-row items-center justify-start">
+        <MetaBalls
+          color="#ffffff"
+          cursorBallColor="#ffffff"
+          cursorBallSize={ 2 }
+          ballCount={ 15 }
+          animationSize={ 30 }
+          enableMouseInteraction={ true }
+          enableTransparency={ true }
+          hoverSmoothness={ 0.05 }
+          clumpFactor={ 1 }
+          speed={ 0.3 }
+        />
+      </section>
+
+      <section>
+        <div style={ { width: '10rem', height: '20rem', position: 'relative' } }>
+          <Orb hoverIntensity={ 0.5 } rotateOnHover={ true } hue={ 0 } forceHoverState={ false } />
+          <p className="">
+            DREAM
+          </p>
+        </div>
       </section>
     </section>
   );
