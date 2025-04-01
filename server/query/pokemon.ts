@@ -2,7 +2,8 @@ import axios, { AxiosResponse } from 'axios';
 
 import { Pokemon } from '@/models/pokemon/Pokemon.models';
 
-export async function getRandomPokemon(): Promise<AxiosResponse<Pokemon>> {
+export async function getRandomPokemon(queryKey): Promise<AxiosResponse<Pokemon>> {
+  console.log(queryKey);
   // create random ID between 1 and 151
   const randomId = Math.floor(Math.random() * 151) + 1;
   const response = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomId}`);

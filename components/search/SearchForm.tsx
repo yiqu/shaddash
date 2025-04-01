@@ -11,9 +11,9 @@ import { getRandomPokemon } from '@/server/query/pokemon';
 
 import LayoutWithGutter from '../layout/LayoutWithGutter';
 
-export default function SearchForm() {
+export default function SearchForm({ pokemonId }: { pokemonId: string }) {
   const { data, isFetching, isLoading } = useQuery({
-    queryKey: ['pokemon-random'],
+    queryKey: ['pokemon-random', pokemonId],
     queryFn: getRandomPokemon,
     // Prevent refetching on mount or window focus
     //refetchOnMount: false,
