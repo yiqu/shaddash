@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import { cva } from 'class-variance-authority';
 import { ChevronDownIcon } from 'lucide-react';
@@ -26,9 +24,7 @@ function NavigationMenu({
       { ...props }
     >
       { children }
-      { viewport ?
-        <NavigationMenuViewport />
-      : null }
+      { viewport ? <NavigationMenuViewport /> : null }
     </NavigationMenuPrimitive.Root>
   );
 }
@@ -62,10 +58,9 @@ const navigationMenuTriggerStyle = cva(
     disabled:pointer-events-none disabled:opacity-50
     data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground
     data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50
-    ring-ring/10
-    dark:ring-ring/20 dark:outline-ring/40
-    outline-ring/50 transition-[color,box-shadow]
-    focus-visible:ring-4 focus-visible:outline-1
+    focus-visible:ring-ring/50
+    outline-none transition-[color,box-shadow]
+    focus-visible:ring-[3px] focus-visible:outline-1
   `,
 );
 
@@ -167,15 +162,14 @@ function NavigationMenuLink({ className, ...props }: React.ComponentProps<typeof
       data-slot="navigation-menu-link"
       className={ cn(
         `
-          flex flex-col gap-1 rounded-sm p-2 text-sm ring-ring/10
-          outline-ring/50 transition-[color,box-shadow]
+          flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none
           hover:bg-accent hover:text-accent-foreground
           focus:bg-accent focus:text-accent-foreground
-          focus-visible:ring-4 focus-visible:outline-1
+          focus-visible:ring-[3px] focus-visible:ring-ring/50
+          focus-visible:outline-1
           data-[active=true]:bg-accent/50
           data-[active=true]:text-accent-foreground
           data-[active=true]:hover:bg-accent data-[active=true]:focus:bg-accent
-          dark:ring-ring/20 dark:outline-ring/40
           [&_svg:not([class*='size-'])]:size-4
           [&_svg:not([class*='text-'])]:text-muted-foreground
         `,

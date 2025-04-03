@@ -1,11 +1,9 @@
 'use client';
 
-import Grid from '@mui/material/Grid2';
 import Stack from '@mui/material/Stack';
-import Grid2 from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 
-import { useQuery, keepPreviousData } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import { getRandomPokemon } from '@/server/query/pokemon';
 

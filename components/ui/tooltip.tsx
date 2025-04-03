@@ -34,7 +34,8 @@ function TooltipContent({
         sideOffset={ sideOffset }
         className={ cn(
           `
-            z-50 w-fit rounded-md bg-primary px-3 py-1.5 text-xs text-balance
+            z-50 w-fit origin-(--radix-tooltip-content-transform-origin)
+            rounded-md bg-primary px-3 py-1.5 text-xs text-balance
             text-primary-foreground animate-in fade-in-0 zoom-in-95
             data-[side=bottom]:slide-in-from-top-2
             data-[side=left]:slide-in-from-right-2

@@ -68,8 +68,9 @@ function ContextMenuSubContent({ className, ...props }: React.ComponentProps<typ
       data-slot="context-menu-sub-content"
       className={ cn(
         `
-          z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1
-          text-popover-foreground shadow-lg
+          z-50 min-w-[8rem]
+          origin-(--radix-context-menu-content-transform-origin) overflow-hidden
+          rounded-md border bg-popover p-1 text-popover-foreground shadow-lg
           data-[side=bottom]:slide-in-from-top-2
           data-[side=left]:slide-in-from-right-2
           data-[side=right]:slide-in-from-left-2
@@ -93,7 +94,9 @@ function ContextMenuContent({ className, ...props }: React.ComponentProps<typeof
         data-slot="context-menu-content"
         className={ cn(
           `
-            z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1
+            z-50 max-h-(--radix-context-menu-content-available-height)
+            min-w-[8rem] origin-(--radix-context-menu-content-transform-origin)
+            overflow-x-hidden overflow-y-auto rounded-md border bg-popover p-1
             text-popover-foreground shadow-md
             data-[side=bottom]:slide-in-from-top-2
             data-[side=left]:slide-in-from-right-2
@@ -133,14 +136,14 @@ function ContextMenuItem({
           focus:bg-accent focus:text-accent-foreground
           data-[disabled]:pointer-events-none data-[disabled]:opacity-50
           data-[inset]:pl-8
-          data-[variant=destructive]:text-destructive-foreground
+          data-[variant=destructive]:text-destructive
           data-[variant=destructive]:focus:bg-destructive/10
-          data-[variant=destructive]:focus:text-destructive-foreground
-          dark:data-[variant=destructive]:focus:bg-destructive/40
+          data-[variant=destructive]:focus:text-destructive
+          dark:data-[variant=destructive]:focus:bg-destructive/20
           [&_svg]:pointer-events-none [&_svg]:shrink-0
           [&_svg:not([class*='size-'])]:size-4
           [&_svg:not([class*='text-'])]:text-muted-foreground
-          data-[variant=destructive]:*:[svg]:!text-destructive-foreground
+          data-[variant=destructive]:*:[svg]:!text-destructive
         `,
         className,
       ) }

@@ -32,7 +32,7 @@ export default function NavExpandableItem({ item, isCollapsed }: NavExpandableIt
   const [isPending, startTransition] = useTransition();
   const { isSidebarCollapsed } = useSideBarState();
   const [isCollapsedMenuOpen, setIsCollapsedMenuOpen] = useState(false);
-  const [optimisticState, addOptimistic] = useOptimistic(
+  const [collapsedStateOptimistic, setCollapsedStateOptimistic] = useOptimistic(
     isCollapsed,
     (currentState: boolean, optimisticValue: boolean) => {
       return optimisticValue;
@@ -65,12 +65,12 @@ export default function NavExpandableItem({ item, isCollapsed }: NavExpandableIt
 
   const handleOnOpenChange = async (open: boolean) => {
     startTransition(async () => {
-      addOptimistic(open);
+      setCollapsedStateOptimistic(open);
       if (item.collapsableStateCookieKey) {
         try {
           await setSidebarCollapsableStateAction(item.collapsableStateCookieKey, open);
         } catch (error) {
-          addOptimistic(isCollapsed);
+          setCollapsedStateOptimistic(isCollapsed);
         }
       }
     });
@@ -109,7 +109,12 @@ export default function NavExpandableItem({ item, isCollapsed }: NavExpandableIt
 
   // Default collapsible behavior when not collapsed
   return (
-    <Collapsible asChild open={ optimisticState } className={ `group/collapsible` } onOpenChange={ handleOnOpenChange }>
+    <Collapsible
+      asChild
+      open={ collapsedStateOptimistic }
+      className={ `group/collapsible` }
+      onOpenChange={ handleOnOpenChange }
+    >
       <SidebarMenuItem>
         <CollapsibleTrigger asChild>
           <MenuItemButton item={ item }>

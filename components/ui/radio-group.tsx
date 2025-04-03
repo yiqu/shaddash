@@ -24,7 +24,7 @@ function RadioGroupItem({ className, ...props }: React.ComponentProps<typeof Rad
           focus-visible:ring-ring/50
           disabled:cursor-not-allowed disabled:opacity-50
           aria-invalid:border-destructive aria-invalid:ring-destructive/20
-          dark:aria-invalid:ring-destructive/40
+          dark:bg-input/30 dark:aria-invalid:ring-destructive/40
         `,
         className,
       ) }

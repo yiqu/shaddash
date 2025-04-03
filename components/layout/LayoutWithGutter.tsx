@@ -1,17 +1,17 @@
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 
 import omit from 'lodash/omit';
 import { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
-import type { Grid2Props } from '@mui/material/Grid2';
+import type { GridProps } from '@mui/material/Grid';
 
 export interface LayoutGutterProps {
   children: ReactNode;
   size?: 'full' | 'widest' | 'wider' | 'wide' | 'large' | 'med' | 'narrow' | 'narrower' | 'small' | 'skinny';
   //       12,      11.5       11        10,      9         7,        6,          5.5         5,      4
-  gridProps?: Grid2Props;
+  gridProps?: GridProps;
 }
 
 function LayoutWithGutter({ children, size = 'full', gridProps }: LayoutGutterProps) {

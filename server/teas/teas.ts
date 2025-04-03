@@ -19,7 +19,7 @@ const teasAxiosInstance = axios.create({
 export async function getTeas(): Promise<Tea[]> {
   'use cache';
   cacheTag('tea-list');
-  cacheLife('minutes');
+  cacheLife('hours');
 
   // sleep for 2 seconds
   await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -30,5 +30,6 @@ export async function getTeas(): Promise<Tea[]> {
 }
 
 export async function revalidateTeaList() {
+  console.log('revalidating tea list');
   revalidateTag('tea-list');
 }

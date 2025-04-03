@@ -4,17 +4,18 @@ import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import {
-  FieldPath,
   Controller,
-  FieldValues,
   FormProvider,
   useFormState,
   useFormContext,
-  ControllerProps,
+  type FieldPath,
+  type FieldValues,
+  type ControllerProps,
 } from 'react-hook-form';
 
 import { cn } from '@/lib/utils';
-import { Label } from '@/components/ui/label';
+
+import { Label } from './label';
 
 const Form = FormProvider;
 
@@ -86,7 +87,7 @@ function FormLabel({ className, ...props }: React.ComponentProps<typeof LabelPri
     <Label
       data-slot="form-label"
       data-error={ !!error }
-      className={ cn('data-[error=true]:text-destructive-foreground', className) }
+      className={ cn('data-[error=true]:text-destructive', className) }
       htmlFor={ formItemId }
       { ...props }
     />
@@ -129,12 +130,9 @@ function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
   }
 
   return (
-    <p
-      data-slot="form-message"
-      id={ formMessageId }
-      className={ cn('text-sm text-destructive-foreground', className) }
-      { ...props }
-    >
+    <p data-slot="form-message" id={ formMessageId } className={ cn(`
+      text-sm text-destructive
+    `, className) } { ...props }>
       { body }
     </p>
   );
