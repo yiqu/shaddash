@@ -23,7 +23,6 @@ export async function getUser(): Promise<User> {
   // sleep for 2 seconds
   // await new Promise((resolve) => setTimeout(resolve, 1500));
 
-  console.log('getting user');
   const res: AxiosResponse<User, any> = await userAxiosInstance.get<User>('.json');
   const user = {
     ...res.data,

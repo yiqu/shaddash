@@ -7,6 +7,8 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getRandomPokemon } from '@/server/query/pokemon';
 
+import { Alert } from '../alerts/Alert';
+import { Skeleton } from '../ui/skeleton';
 import LayoutWithGutter from '../layout/LayoutWithGutter';
 
 export default function SearchForm({ pokemonId }: { pokemonId: string }) {
@@ -18,10 +20,28 @@ export default function SearchForm({ pokemonId }: { pokemonId: string }) {
     //refetchOnWindowFocus: false,
   });
 
-  console.log(data);
+  if (isLoading) {
+    return (
+      <section className="flex h-full w-full items-center justify-center">
+        <Skeleton className="h-[1rem] w-2xl" />
+      </section>
+    );
+  }
 
   return (
     <LayoutWithGutter size="wider" gridProps={ { className: 'HELLO' } }>
+      <div className="flex w-4xl flex-col space-y-2">
+        <Alert
+          title={ <div>NOTE!</div> }
+          description={ <div className="text-foreground">NOTE!</div> }
+          variant="note"
+        />
+        <Alert title="Heads up!" description="You can add components to your app using the cli." variant="info" />
+        <Alert title="Heads up!" description="You can add components to your app using the cli." variant="danger" />
+        <Alert title="Heads up!" description="You can add components to your app using the cli." variant="success" />
+        <Alert title="Heads up!" description="You can add components to your app using the cli." variant="warning" />
+        <Alert title="Heads up!" description="You can add components to your app using the cli." variant="tip" />
+      </div>
       <Stack direction="row">
         <Typography>Data:</Typography>
         <Typography>{ data?.data.name }</Typography>

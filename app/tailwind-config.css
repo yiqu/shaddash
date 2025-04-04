@@ -154,6 +154,12 @@
   }
 }
 
+@layer text-colors {
+  .light0 {
+    
+  }
+}
+
 @layer app-colors {
   .logo-text-color {
     @apply text-amber-700;

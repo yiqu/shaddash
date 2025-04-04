@@ -30,6 +30,5 @@ export async function getTeas(): Promise<Tea[]> {
 }
 
 export async function revalidateTeaList() {
-  console.log('revalidating tea list');
   revalidateTag('tea-list');
 }

@@ -1,3 +1,5 @@
+import { CircleCheck } from 'lucide-react';
+
 import SearchForm from '@/components/search/SearchForm';
 
 export default async function PokemonPage({
@@ -10,5 +12,9 @@ export default async function PokemonPage({
   const pokemonIdParams = await searchParams;
   const { pokemonId } = pokemonIdParams;
 
-  return <SearchForm pokemonId={ pokemonId } />;
+  return (
+    <div>
+      <SearchForm pokemonId={ pokemonId } />
+    </div>
+  );
 }

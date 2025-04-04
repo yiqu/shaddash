@@ -27,12 +27,12 @@ export const viewport = {
 // Favicon configuration
 export const favicons = {
   icon: [
-    { url: '/favicons/boba-favicon.png', sizes: '32x32', type: 'image/png' },
-    { url: '/favicons/boba-favicon.png', sizes: '192x192', type: 'image/png' },
-    { url: '/favicons/boba-favicon.png', sizes: '512x512', type: 'image/png' },
+    { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+    { url: '/favicon.ico', sizes: '192x192', type: 'image/x-icon' },
+    { url: '/favicon.ico', sizes: '512x512', type: 'image/x-icon' },
   ],
-  shortcut: [{ url: '/favicons/boba-favicon.png' }],
-  apple: [{ url: '/favicons/boba-favicon.png' }],
+  shortcut: [{ url: '/favicon.ico' }],
+  apple: [{ url: '/favicon.ico' }],
 };
 
 export const metadata: Metadata = {

@@ -4,7 +4,6 @@ import { Input } from '../ui/input';
 export default function SearchInput() {
   const handleOnInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    console.log(value);
   };
 
   return (
