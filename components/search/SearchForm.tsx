@@ -31,16 +31,14 @@ export default function SearchForm({ pokemonId }: { pokemonId: string }) {
   return (
     <LayoutWithGutter size="wider" gridProps={ { className: 'HELLO' } }>
       <div className="flex w-4xl flex-col space-y-2">
-        <Alert
-          title={ <div>NOTE!</div> }
-          description={ <div className="text-foreground">NOTE!</div> }
-          variant="note"
-        />
+        <Alert title={ <div>NOTE!</div> } description={ <div className={ `
+          text-foreground
+        ` }>NOTE!</div> } variant="note" />
         <Alert title="Heads up!" description="You can add components to your app using the cli." variant="info" />
-        <Alert title="Heads up!" description="You can add components to your app using the cli." variant="danger" />
+        <Alert description="You can add components to your app using the cli." variant="danger" />
         <Alert title="Heads up!" description="You can add components to your app using the cli." variant="success" />
-        <Alert title="Heads up!" description="You can add components to your app using the cli." variant="warning" />
-        <Alert title="Heads up!" description="You can add components to your app using the cli." variant="tip" />
+        <Alert description="You can add components to your app using the cli." variant="warning" />
+        <Alert description="You can add components to your app using the cli." variant="tip" />
       </div>
       <Stack direction="row">
         <Typography>Data:</Typography>

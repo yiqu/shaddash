@@ -4,6 +4,7 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
 import { Suspense } from 'react';
+import NextTopLoader from 'nextjs-toploader';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import { geistFont } from '@/lib/fonts-config';
@@ -49,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={ `${geistFont.className} antialiased` }>
+        <NextTopLoader showSpinner={ false } color={ '#4cae3b' } />
         <InitColorSchemeScript defaultMode="light" attribute="data-mui-color-scheme" />
         <AppRouterCacheProvider options={ { enableCssLayer: true } }>
           <MuiThemeProvider theme={ theme } defaultMode="light">

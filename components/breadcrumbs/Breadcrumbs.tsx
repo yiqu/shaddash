@@ -9,7 +9,7 @@ export default function Breadcrumbs() {
     <BreadcrumbsList>
       <HomeSegment />
       <BreadcrumbSeparator />
-      <BreadcrumbSegments />
+      { /* <BreadcrumbSegments /> */ }
     </BreadcrumbsList>
   );
 }

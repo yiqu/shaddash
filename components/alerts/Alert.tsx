@@ -4,10 +4,14 @@ import { ReactNode } from 'react';
 import { Info, Flame, BadgeInfo, Lightbulb, CircleCheck, LucideProps, TriangleAlert } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { AlertTitle, AlertDescription, Alert as ShadcnAlert } from '@/components/ui/alert';
+import {
+  Alert as ShadcnAlert,
+  AlertTitle as ShadcnAlertTitle,
+  AlertDescription as ShadcnAlertDescription,
+} from '@/components/ui/alert';
 
 interface AlertProps {
-  title: ReactNode;
+  title?: ReactNode;
   description: ReactNode;
   variant: 'note' | 'info' | 'success' | 'warning' | 'danger' | 'tip';
 }
@@ -23,8 +27,8 @@ export function Alert({ title, description, variant = 'note' }: AlertProps) {
       }) }
     >
       <AlertIcon variant={ variant } />
-      <AlertTitle> { title }</AlertTitle>
-      <AlertDescription className=""> { description }</AlertDescription>
+      <ShadcnAlertTitle> { title ? title : variant.toUpperCase() }</ShadcnAlertTitle>
+      <ShadcnAlertDescription className=""> { description }</ShadcnAlertDescription>
     </ShadcnAlert>
   );
 }
