@@ -17,3 +17,7 @@ src/reportWebVitals.ts
 src/service-worker.ts
 src/serviceWorkerRegistration.ts
 src/setupTests.ts
+
+app/generated/*
+components/ui-pre-19/*
+components/ui/*
