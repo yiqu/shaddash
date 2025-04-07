@@ -14,17 +14,14 @@ import { Skeleton } from '../ui/skeleton';
 export default function ThemeToggleButton() {
   const [mounted, setMounted] = useState(false);
   const [rotationDegree, setRotationDegree] = useState(0);
-  const [currentIcon, setCurrentIcon] = useState<'light' | 'dark'>('light');
   const { setTheme, theme }: UseThemeProps = useTheme();
+  const [currentIcon, setCurrentIcon] = useState<'light' | 'dark'>(theme as 'light' | 'dark');
   const { setMode } = useColorScheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
-    if (mounted) {
-      setCurrentIcon(theme as 'light' | 'dark');
-    }
-  }, [mounted, theme]);
+  }, []);
 
   const handleOnThemeUpdate = () => {
     // Calculate the next rotation value (rotate 180 degrees more)
