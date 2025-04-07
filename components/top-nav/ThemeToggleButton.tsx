@@ -13,23 +13,38 @@ import { Skeleton } from '../ui/skeleton';
 
 export default function ThemeToggleButton() {
   const [mounted, setMounted] = useState(false);
+  const [rotationDegree, setRotationDegree] = useState(0);
+  const [currentIcon, setCurrentIcon] = useState<'light' | 'dark'>('light');
   const { setTheme, theme }: UseThemeProps = useTheme();
   const { setMode } = useColorScheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
-  }, []);
+    if (mounted) {
+      setCurrentIcon(theme as 'light' | 'dark');
+    }
+  }, [mounted, theme]);
 
   const handleOnThemeUpdate = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-    setMode(theme === 'light' ? 'dark' : 'light');
+    // Calculate the next rotation value (rotate 180 degrees more)
+    const nextRotation = rotationDegree + 180;
+    setRotationDegree(nextRotation);
+
+    // Delay the theme change until the animation is halfway complete
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+
+    setTimeout(() => {
+      setTheme(newTheme);
+      setMode(newTheme);
+      setCurrentIcon(newTheme);
+    }, 150);
   };
 
   // Prevent hydration mismatch by not rendering theme-dependent content until mounted
   if (!mounted) {
     return (
-      <Button variant="outline" size="icon">
+      <Button variant="outline" size="icon" disabled>
         <Skeleton className="h-4 w-4 rounded-full" />
       </Button>
     );
@@ -37,9 +52,11 @@ export default function ThemeToggleButton() {
 
   return (
     <Button variant="outline" size="icon" onClick={ handleOnThemeUpdate }>
-      { theme === 'dark' ?
-        <Sun />
-      : <Moon /> }
+      <div className="transition-transform duration-300" style={ { transform: `rotate(${rotationDegree}deg)` } }>
+        { currentIcon === 'dark' ?
+          <Sun />
+        : <Moon /> }
+      </div>
     </Button>
   );
 }
