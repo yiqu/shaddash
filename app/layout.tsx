@@ -25,21 +25,11 @@ export const viewport = {
   maximumScale: 1,
 };
 
-// Favicon configuration
-export const favicons = {
-  icon: [
-    { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
-    { url: '/favicon.ico', sizes: '192x192', type: 'image/x-icon' },
-    { url: '/favicon.ico', sizes: '512x512', type: 'image/x-icon' },
-  ],
-  shortcut: [{ url: '/favicon.ico' }],
-  apple: [{ url: '/favicon.ico' }],
-};
 
 export const metadata: Metadata = {
-  title: 'Reminders For KQ',
+  title: 'BOBA SHOP',
   description: '',
-  icons: favicons,
+  icons: '/favicon.ico',
 };
 
 export default function RootLayout({

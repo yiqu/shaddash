@@ -18,14 +18,14 @@ export default function ThemeToggleButton() {
   const [currentIcon, setCurrentIcon] = useState<'light' | 'dark'>(theme as 'light' | 'dark');
   const { setMode } = useColorScheme();
 
-  // useEffect only runs on the client, so now we can safely show the UI
+  // useEffect only runs on the client, so now we can safely show the UI 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const handleOnThemeUpdate = () => {
-    // Calculate the next rotation value (rotate 180 degrees more)
-    const nextRotation = rotationDegree + 180;
+    // Calculate the next rotation value
+    const nextRotation = rotationDegree + 360;
     setRotationDegree(nextRotation);
 
     // Delay the theme change until the animation is halfway complete
@@ -35,7 +35,7 @@ export default function ThemeToggleButton() {
       setTheme(newTheme);
       setMode(newTheme);
       setCurrentIcon(newTheme);
-    }, 150);
+    }, 100);
   };
 
   // Prevent hydration mismatch by not rendering theme-dependent content until mounted
@@ -49,7 +49,7 @@ export default function ThemeToggleButton() {
 
   return (
     <Button variant="outline" size="icon" onClick={ handleOnThemeUpdate }>
-      <div className="transition-transform duration-300" style={ { transform: `rotate(${rotationDegree}deg)` } }>
+      <div className="transition-transform duration-200" style={ { transform: `rotate(${rotationDegree}deg)` } }>
         { currentIcon === 'dark' ?
           <Sun />
         : <Moon /> }
