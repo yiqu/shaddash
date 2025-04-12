@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import ClientHydrate from '@/components/utils/ClientHydrate';
 
+import U2 from './_components/U2';
 import Users from './_components/Users';
 import Counter from './_components/Counter';
 
@@ -15,6 +16,11 @@ export default function Page() {
 
       <div>Users</div>
       <Users />
+
+      <div>U2</div>
+      <ClientHydrate>
+        <U2 />
+      </ClientHydrate>
     </div>
   );
 }

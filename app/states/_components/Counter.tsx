@@ -6,9 +6,9 @@ import userCounterUserStore from '@/stores/counter.store';
 export default function Counter() {
   console.log('Rendering Counter');
   //const { incrementCount, decrementCount } = userCounterUserStore();
-  const count = userCounterUserStore((state) => state.count);
-  const incrementCount = userCounterUserStore((state) => state.incrementCount);
-  const decrementCount = userCounterUserStore((state) => state.decrementCount);
+  const count = userCounterUserStore.use.count();
+  const incrementCount = userCounterUserStore.use.incrementCount();
+  const decrementCount = userCounterUserStore.use.decrementCount();
 
   const handleOnAddOne = () => {
     incrementCount();

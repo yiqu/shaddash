@@ -19,8 +19,8 @@ export async function setCookie(name: string, value: string, options?: ResponseC
   const cookieStore: ReadonlyRequestCookies = await cookies();
   cookieStore.set(name, value, {
     path: COOKIE_PATH_HOME,
-    maxAge: COOKIE_MAX_AGE_1_YEAR,
     ...options,
+    maxAge: COOKIE_MAX_AGE_1_YEAR,
   });
 }
 

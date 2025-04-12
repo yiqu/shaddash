@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
+import { StoreApi, UseBoundStore } from 'zustand';
 import { persist, PersistOptions, createJSONStorage } from 'zustand/middleware';
 
 type User = {
@@ -24,6 +25,7 @@ type CounterState = {
 
   // Selectors
   getSortedUsersByName: () => User[];
+  getSortedUsersByName2: () => User[];
   getCount: () => number;
 };
 
@@ -32,7 +34,7 @@ type UserCounterPersist = PersistOptions<
   Omit<CounterState, 'addUser' | 'removeUser' | 'clearUsers' | 'getSortedUsersByName'>
 >;
 
-const userCounterUserStore = create<CounterState>()(
+const userCounterUserStoreBase = create<CounterState>()(
   // devtools(
   persist(
     (set, get) => ({
@@ -57,7 +59,14 @@ const userCounterUserStore = create<CounterState>()(
       clearUsers: () => {},
 
       getSortedUsersByName: () => {
-        return get().users;
+        const u = get().users;
+        const uSorted = u.toSorted((a, b) => (a.name < b.name ? 1 : -1));
+        return [...uSorted];
+      },
+
+      getSortedUsersByName2: () => {
+        const u = get().users;
+        return u;
       },
 
       incrementCount: () => {
@@ -109,5 +118,19 @@ const userCounterUserStore = create<CounterState>()(
   ),
   //),
 );
+
+type WithSelectors<S> = S extends { getState: () => infer T } ? S & { use: { [K in keyof T]: () => T[K] } } : never;
+
+const createSelectors = <S extends UseBoundStore<StoreApi<object>>>(_store: S) => {
+  let store = _store as WithSelectors<typeof _store>;
+  store.use = {};
+  for (let k of Object.keys(store.getState())) {
+    (store.use as any)[k] = () => store((s) => s[k as keyof typeof s]);
+  }
+
+  return store;
+};
+
+const userCounterUserStore = createSelectors(userCounterUserStoreBase);
 
 export default userCounterUserStore;
