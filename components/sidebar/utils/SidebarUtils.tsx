@@ -28,3 +28,27 @@ export function SideBarLucideIcon({ url }: { url: string }): ReactNode {
   }
   return <CircleDot />;
 }
+
+export function SearchDateLabel({ children }: { children: ReactNode }) {
+  return <div className="mb-1 px-1.5 text-start text-sm text-muted-foreground">{ children }</div>;
+}
+
+export function SearchedList({ children, className }: { children: ReactNode; className?: string }) {
+  return <div className={ cn('flex flex-col gap-y-1', className) }>{ children }</div>;
+}
+
+export function SideNavBarCollapsedMenuItem({
+  children,
+  item,
+  ...props
+}: { children: ReactNode; item: CustomNestNavListItem } & React.ComponentProps<'button'>) {
+  const pathName = usePathName();
+  const firstPath = pathName.split('/')[1] || '';
+  const isActive = firstPath.tolowerCase() === item.url.toLowerCase();
+
+  return (
+    <SidebarMenuItem className="cursor-pointer" isActive={ isActive } { ...props }>
+      { children }
+    </SidebarMenuItem>
+  );
+}

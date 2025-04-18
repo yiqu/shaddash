@@ -15,7 +15,7 @@ export default function TopNav() {
         ` } />
         <Breadcrumbs />
       </div>
-      <div className="px-4">
+      <div className="flex flex-row items-center justify-end gap-x-2 px-4">
         <ThemeToggleButton />
       </div>
     </>

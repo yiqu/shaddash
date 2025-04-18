@@ -13,16 +13,9 @@ const ITEMS: NestNavListItem[] = [
     title: 'Favorites',
     url: 'favorites',
     icon: FolderHeart,
+    isActive: false,
     collapsableStateCookieKey: SIDEBAR_COLLAPSABLE_FAVORITES,
     items: [
-      // {
-      //   name: 'Jasmine tea, Lg, less ice, boba, jelly',
-      //   url: '/favorites',
-      // },
-      // {
-      //   name: 'Brown sugar tea, Lg, less ice, boba, jelly',
-      //   url: '/favorites',
-      // },
     ],
   },
 ];

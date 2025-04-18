@@ -12,6 +12,7 @@ export default function TanstackQueryClientProvider({ children }: { children: Re
           queries: {
             staleTime: 1000 * 60 * 1, // 1 minute
             gcTime: 1000 * 60 * 10, // 10 minutes
+            retry: 0
           },
         },
       }),

@@ -25,7 +25,6 @@ export const viewport = {
   maximumScale: 1,
 };
 
-
 export const metadata: Metadata = {
   title: 'BOBA SHOP',
   description: '',
@@ -39,25 +38,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={ `${geistFont.className} antialiased` }>
-        <NextTopLoader showSpinner={ false } color={ '#4cae3b' } />
+      <ReactScan />
+      <body className={`${geistFont.className} antialiased`}>
+        <AgGridRegister />
+        <NextTopLoader showSpinner={false} color={'#4cae3b'} />
         <InitColorSchemeScript defaultMode="light" attribute="data-mui-color-scheme" />
-        <AppRouterCacheProvider options={ { enableCssLayer: true } }>
-          <MuiThemeProvider theme={ theme } defaultMode="light">
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <MuiThemeProvider theme={theme} defaultMode="light">
             <NuqsAdapter>
               <TanstackQueryClientProvider>
                 <ThemeProvider
                   attribute="class"
                   defaultTheme="light"
-                  enableSystem={ false }
+                  enableSystem={false}
                   disableTransitionOnChange
                   storageKey="theme"
                 >
-                  { /* <CssBaseline /> */ }
-                  <Suspense>
-                    <AppLayout>{ children }</AppLayout>
-                  </Suspense>
-                  <CustomToaster />
+                  {/* <CssBaseline /> */}
+                  <TooltipProvider delayDuration={0}>
+                    <Suspense>
+                      <AppLayout>
+                        {children}
+                        <HotToaster />
+                      </AppLayout>
+                    </Suspense>
+                    <CustomToaster />
+                  </TooltipProvider>
                 </ThemeProvider>
               </TanstackQueryClientProvider>
             </NuqsAdapter>

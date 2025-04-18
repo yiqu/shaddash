@@ -96,7 +96,7 @@ export default function NavExpandableItem({ item, isCollapsed }: NavExpandableIt
           <PopoverContent
             side="right"
             align="start"
-            className="w-48 p-2"
+            className="max-h-[55rem] w-72 overflow-auto p-2"
             onMouseEnter={ handleMouseEnter }
             onMouseLeave={ handleMouseLeave }
           >

@@ -5,8 +5,6 @@
     "plugin:@next/next/recommended",
     "prettier",
     "plugin:@tanstack/eslint-plugin-query/recommended",
-    "plugin:readable-tailwind/warning",
-    "plugin:readable-tailwind/error"
   ],
   "plugins": [
     "perfectionist",
@@ -167,12 +165,12 @@
     "unicorn/prefer-number-properties": 1,
     "readable-tailwind/multiline": 1,
     "readable-tailwind/no-unnecessary-whitespace": 1,
-    "readable-tailwind/sort-classes": "off",
+    "readable-tailwind/sort-classes": 1,
     "readable-tailwind/no-duplicate-classes": 2
-  },
-  "settings": {
-    "readable-tailwind": {
-      "entryPoint": ["./app/tailwind-config.css"]
-    }
   }
+  // "settings": {
+  //   "readable-tailwind": {
+  //     "entryPoint": ["./app/tailwind-config.css"]
+  //   }
+  // }
 }
