@@ -11,3 +11,13 @@ html.dark [data-hide-on-theme='dark'],
 html:not(.dark) [data-hide-on-theme='light'] {
   display: none;
 }
+
+::-webkit-scrollbar {
+  border-radius: 18px;
+  width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 24px;
+}

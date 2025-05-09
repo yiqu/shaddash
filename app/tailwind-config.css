@@ -156,7 +156,6 @@
 
 @layer text-colors {
   .light0 {
-    
   }
 }
 
@@ -350,5 +349,64 @@
   }
   .gap-mui-10 {
     gap: calc(var(--spacing) * 20);
+  }
+}
+
+@layer top-loader {
+  :root {
+    --app-top-loader-color: blue;
+  }
+  .dark {
+    --app-top-loader-color: blue;
+  }
+}
+
+@layer link-color-utils {
+  :root {
+    --link-internal: #2c58a8;
+    --link-external-foreground: #2c58a8;
+  }
+  .dark {
+    --link-internal: #2c58a8;
+    --link-external-foreground: #2c58a8;
+  }
+}
+
+@layer text-color-utils {
+  :root {
+    a.external {
+      color: var(--link-external-foreground);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+
+    a:not([role='menuitem']):not([data-slot='sidebar-menu-button']):not([data-slot='sidebar-menu-sub-button']):not(
+        [role='tab']
+      ):not([data-slot='popover-trigger']) {
+      color: var(--link-internal);
+      font-weight: 500;
+    }
+
+    .text-lightish {
+      color: #202124;
+    }
+    .text-light {
+      color: #484a51;
+    }
+    .text-lighter {
+      color: #6c6f7a;
+    }
+  }
+  .dark {
+    .text-lightish {
+      color: #d6d7db;
+    }
+    .text-light {
+      color: #aeb0b7;
+    }
+    .text-lighter {
+      color: #858893;
+    }
   }
 }

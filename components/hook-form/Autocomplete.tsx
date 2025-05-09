@@ -30,6 +30,7 @@ interface AutocompleteInputProps {
   rules?: Record<string, any>;
   multi?: boolean;
   isLoading?: boolean;
+  formItemClassName?: string;
 }
 
 export function AutocompleteInput({
@@ -45,6 +46,7 @@ export function AutocompleteInput({
   rules,
   isLoading = false,
   multi = true,
+  formItemClassName,
 }: AutocompleteInputProps) {
   const [open, setOpen] = React.useState(false);
   const [inputValue, setInputValue] = React.useState('');
@@ -186,7 +188,7 @@ export function AutocompleteInput({
       name={name}
       render={({ field }) => {
         return (
-          <FormItem>
+          <FormItem className={cn(formItemClassName)}>
             {label ?
               <FormLabel>{label}</FormLabel>
             : null}
